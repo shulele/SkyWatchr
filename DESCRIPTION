@@ -4,7 +4,7 @@ Title: Wrapper for the SkyWatch API
 Version: 0.0-1
 Author: Ali Santacruz, SkyWatch API Developers
 Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
-Description: Wrapper for the SkyWatch API
+Description: Wrapper for the SkyWatch API.
     Additional description.
 Depends: R (>= 2.14.0), httr
 License: GPL (>= 2)
