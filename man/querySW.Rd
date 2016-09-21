@@ -5,17 +5,17 @@
 Query SkyWatch API
 }
 \usage{
-querySW(level = NULL, coordinates = NULL, times = NULL, api_key)
+querySW(level = "", coordinates = "", times = "", api_key = api_key)
 }
 \arguments{
   \item{level}{
-numeric; data processing levels for Earth observation data. See details
+string; data processing levels for Earth observation data. See details
 }
   \item{coordinates}{
 string; longitude, latitude coordinate pairs. See details
 }
-  \item{time}{
-date; One or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). See details
+  \item{times}{
+string; one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). See details
 }
   \item{api_key}{
 string; personal alphanumeric api key
@@ -40,5 +40,18 @@ Polygon: -71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,
 data.frame containing query output
 }
 \examples{
-querySW(level = 3, coordinates = "36.281389,-80.060278", times = 2015, api_key)
+api_key <- "your_personal_alphanumeric_api_key"
+
+# An oil refinery in Canada
+querySW(level = 3, coordinates = "36.281389,-80.060278", times = 2015, api_key = api_key)
+
+# One of the words largest landfills "Olusosun Dump" in Nigeria
+querySW(coordinates = "6.566358,3.367358,6.586358,3.387358", times = "2015", api_key = api_key)
+
+# The smoggiest city on Earth Ahvaz, Iran
+querySW(level = 3, coordinates = "31.321119,48.676074", times = "2015-06", api_key = api_key)
+
+# From GitHub repository examples
+querySW(level = 2, coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25", api_key = api_key)
+querySW(coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25", api_key = api_key)
 }
