@@ -5,11 +5,11 @@
 Query SkyWatch API
 }
 \usage{
-querySW(level = "", coordinates = "", times = "", api_key = api_key)
+querySW(level = NULL, coordinates, times = NULL, api_key)
 }
 \arguments{
   \item{level}{
-string; data processing levels for Earth observation data. See details
+numeric; data processing levels for Earth observation data. See details
 }
   \item{coordinates}{
 string; longitude, latitude coordinate pairs. See details
@@ -33,7 +33,9 @@ Point: -71.1043443253,-42.3150676016
 Square: -71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829
 
 Polygon: -71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,
+
 71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,
+
 -71.1043443253471,-42.3150676015829
 
 \code{times} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If no time is specified, midnight UTC on the day in question is assumed. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
@@ -61,3 +63,4 @@ querySW(coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25
         api_key = api_key)
 }
 }
+\keyword{ spatial }% use one of  RShowDoc("KEYWORDS")
