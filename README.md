@@ -7,11 +7,13 @@ R wrapper for the [SkyWatch API] developed by [SkyWatch].
 
 If not installed yet, first install the `devtools` package:
 
+
 ```r
 install.packages('devtools')
 ```
 
 Then install the `SkyWatchr` package from this GitHub repository:
+
 
 ```r
 devtools::install_github('amsantac/SkyWatchr')
@@ -21,10 +23,12 @@ devtools::install_github('amsantac/SkyWatchr')
 
 First load the SkyWatchr package:
 
+
 ```r
 library(SkyWatchr)
 ```
 Then store in an object your API key and try some queries with the `querySW` function:
+
 
 ```r
 api_key <- "your_personal_alphanumeric_api_key"
