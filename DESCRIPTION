@@ -1,7 +1,7 @@
 Package: SkyWatchr
 Type: Package
 Title: Wrapper for the SkyWatch API
-Version: 0.0.1
+Version: 0.0-1
 Author: Ali Santacruz, SkyWatch API Developers
 Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
 Description: Wrapper for the SkyWatch API

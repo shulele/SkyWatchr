@@ -32,7 +32,9 @@ Point: -71.1043443253,-42.3150676016
 
 Square: -71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829
 
-Polygon: -71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829
+Polygon: -71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,
+71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,
+-71.1043443253471,-42.3150676015829
 
 \code{times} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If no time is specified, midnight UTC on the day in question is assumed. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
 }
@@ -40,6 +42,7 @@ Polygon: -71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,
 data.frame containing query output
 }
 \examples{
+\dontrun{
 api_key <- "your_personal_alphanumeric_api_key"
 
 # An oil refinery in Canada
@@ -52,6 +55,9 @@ querySW(coordinates = "6.566358,3.367358,6.586358,3.387358", times = "2015", api
 querySW(level = 3, coordinates = "31.321119,48.676074", times = "2015-06", api_key = api_key)
 
 # From GitHub repository examples
-querySW(level = 2, coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25", api_key = api_key)
-querySW(coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25", api_key = api_key)
+querySW(level = 2, coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25", 
+        api_key = api_key)
+querySW(coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25", 
+        api_key = api_key)
+}
 }
