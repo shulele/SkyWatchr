@@ -69,7 +69,7 @@ data.frame containing query output
 \dontrun{
 api_key <- "your_personal_alphanumeric_api_key"
 
-# One of the words largest landfills "Olusosun Dump" in Nigeria
+# One of the world largest landfills "Olusosun Dump" in Nigeria
 querySW(api_key, time_period = 2015-8, coordinates = "6.566358,3.367358,6.586358,3.387358")
 
 # An Imperial Oil refinery in Canada
