@@ -1,9 +1,11 @@
-querySW <- function(level = NULL, coordinates, times = NULL, api_key){
+querySW <- function(api_key, level = NULL, coordinates, times = NULL){
   
   if (is.null(times)) times <- Sys.Date()
   
-  query <- GET(paste0("https://cqh77pglf1.execute-api.us-west-2.amazonaws.com/prod/data/level/", level, "/location/",
-                       coordinates, "/time/", times, "?api_key=", api_key))
+  URL <- paste0("https://api.skywatch.co/data/level/", level, "/location/",
+                coordinates, "/time/", times, "?")
+  
+  query <- GET(URL, add_headers('Accept' = 'application/json', 'x-api-key' = api_key)))
   
   return(content(query))
 }
