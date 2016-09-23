@@ -5,8 +5,9 @@
 Query SkyWatch API
 }
 \usage{
-querySW(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, data_level = NULL, 
-        max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL)
+querySW(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, 
+        data_level = NULL, max_resolution = NULL, max_cloudcover = NULL, 
+        wavelength_band = NULL)
 }
 \arguments{
   \item{api_key}{
@@ -70,7 +71,8 @@ querySW(api_key, time_period = 2015, coordinates = "36.281389,-80.060278", level
 querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", level = 3)
 
 # Ahvaz, Iran in September, 2015
-querySW(api_key, time_period = "2015-9", coordinates = "31.321119,48.676074", level = 1, wavelength_band = "red,green,blue")
+querySW(api_key, time_period = "2015-9", coordinates = "31.321119,48.676074", level = 1, 
+        wavelength_band = "red,green,blue")
 
 # Other examples
 querySW(api_key, time_period = "2009-12-25", coordinates = "-71.1043443253471,-42.3150676015829", 
