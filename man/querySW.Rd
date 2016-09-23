@@ -57,7 +57,8 @@ querySW(api_key, coordinates = "6.566358,3.367358,6.586358,3.387358", times = 20
 querySW(api_key, level = 3, coordinates = "31.321119,48.676074", times = "2015-06")
 
 # From GitHub repository examples
-querySW(api_key, level = 2, coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25")
+querySW(api_key, level = 2, coordinates = "-71.1043443253471,-42.3150676015829", 
+        times = "2009-12-25")
 querySW(api_key, coordinates = "-71.1043443253471,-42.3150676015829", times = "2009-12-25")
 }
 }
