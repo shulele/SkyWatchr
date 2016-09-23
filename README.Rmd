@@ -7,7 +7,7 @@ output:
 
 # SkyWatchr
 
-R wrapper for the [SkyWatch API] developed by [SkyWatch].
+R wrapper for the [SkyWatch API] (currently version 0.3) developed by [SkyWatch].
 
 ## Installation
 
