@@ -92,15 +92,17 @@ querySW(api_key, time_period = "2009-12-25", coordinates = "-71.1043443253471,-4
 
 querySW(api_key, time_period = "2016-07-11,2016-07-12", 
         coordinates = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
-        instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, max_cloudcover = 100, 
-        wavelength_band = "Blue")
+        instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
+        max_cloudcover = 100, wavelength_band = "Blue")
 
 # Get output as data.frame
-res <- querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", output = "data.frame")
+res <- querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358",
+               output = "data.frame")
 View(res)
 
 # Get output as html
-querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", output = "html")
+querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", 
+        output = "html")
 }
 }
 \keyword{ spatial }% use one of  RShowDoc("KEYWORDS")
