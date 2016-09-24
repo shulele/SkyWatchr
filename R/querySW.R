@@ -1,5 +1,5 @@
 querySW <- function(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, data_level = NULL, 
-                    max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "html"){
+                    max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "data.frame"){
   
   if (is.null(time_period)) time_period <- Sys.Date()
   
@@ -15,18 +15,15 @@ querySW <- function(api_key, time_period = NULL, coordinates, instrument_satelli
   
   res <- content(query)
   
-  if(output == "data.frame"){
     res <- as.data.frame(do.call(rbind, lapply(res, unlist)))
     res[] <- lapply(res, as.character)
     res$size <- round(as.numeric(res$size)/1e3, 1)
+    res$cloud_cover <- as.numeric(res$cloud_cover)
+    res$resolution <- as.numeric(res$resolution)
     colnames(res)[which(colnames(res) == 'size')] <- 'size(kb)'
-  }
-  
+
   if(output == "html"){
-    res <- as.data.frame(do.call(rbind, lapply(res, unlist)))
-    res[] <- lapply(res, as.character)
-    res$size <- round(as.numeric(res$size)/1e3, 1)
-    colnames(res)[which(colnames(res) == 'size')] <- 'size(kb)'
+
     html.res <- htmlTable(res)
     
     for (i in 1:nrow(res)){

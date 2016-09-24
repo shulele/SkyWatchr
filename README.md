@@ -38,7 +38,8 @@ api_key <- "your_personal_alphanumeric_api_key"
 querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358")
 
 # An Imperial Oil refinery in Canada
-querySW(api_key, time_period = 2015, coordinates = "36.281389,-80.060278", data_level = 3)
+res <- querySW(api_key, time_period = 2015, coordinates = "36.281389,-80.060278", data_level = 3)
+View(res)
 
 # The smoggiest city on Earth Ahvaz, Iran
 querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", data_level = 3)
@@ -58,15 +59,10 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
         max_cloudcover = 100, wavelength_band = "Blue")
 ```
 
-Call examples above retrieve objects of class `list`. Output can also be retrieved as objects of class `data.frame` and/or printed as html:
+Call examples above retrieve objects of class `data.frame`. Output can also be printed as html by setting the `output` argument as `html`:
 
 
 ```r
-# Get output as data.frame
-res <- querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", 
-               output = "data.frame")
-View(res)
-
 # Get output as html
 querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", 
         output = "html")
