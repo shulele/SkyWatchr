@@ -7,7 +7,7 @@ Query SkyWatch API
 \usage{
 querySW(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, 
         data_level = NULL, max_resolution = NULL, max_cloudcover = NULL, 
-        wavelength_band = NULL, output = "list")
+        wavelength_band = NULL, output = "html")
 }
 \arguments{
   \item{api_key}{
@@ -35,7 +35,7 @@ numeric; maximum cloud cover (in percentage). See Details section
 string; wavelength bands for imagery (i.e. Landsat-8) and by file type for non-imagery data (e.g. Hierarchical-Data-Format). See Details section
 }
   \item{output}{
-string; either "list" (default), "data.frame" or "html". "html" returns a data.frame and prints it as html.
+string; either "list", "data.frame" or "html" (default). "html" returns a data.frame and prints it as html.
 }
 }
 \details{
@@ -103,6 +103,10 @@ View(res)
 # Get output as html
 querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", 
         output = "html")
+querySW(api_key, time_period = "2016-07-11,2016-07-12", 
+        coordinates = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
+        instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
+        max_cloudcover = 100, wavelength_band = "Blue", output = "html")
 }
 }
 \keyword{ spatial }% use one of  RShowDoc("KEYWORDS")

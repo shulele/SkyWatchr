@@ -1,5 +1,5 @@
 querySW <- function(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, data_level = NULL, 
-                    max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "list"){
+                    max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "html"){
   
   if (is.null(time_period)) time_period <- Sys.Date()
   
