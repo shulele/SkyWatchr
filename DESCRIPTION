@@ -6,7 +6,7 @@ Author: Ali Santacruz, SkyWatch API Developers
 Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
 Description: Wrapper for the SkyWatch API.
     Additional description.
-Depends: R (>= 2.14.0), httr
+Depends: R (>= 2.14.0), httr, htmlTable
 License: GPL (>= 2)
 Encoding: latin1
 LazyData: true

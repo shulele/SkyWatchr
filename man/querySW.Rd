@@ -7,7 +7,7 @@ Query SkyWatch API
 \usage{
 querySW(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, 
         data_level = NULL, max_resolution = NULL, max_cloudcover = NULL, 
-        wavelength_band = NULL)
+        wavelength_band = NULL, output = "list")
 }
 \arguments{
   \item{api_key}{
@@ -33,6 +33,9 @@ numeric; maximum cloud cover (in percentage). See Details section
 }
   \item{wavelength_band}{
 string; wavelength bands for imagery (i.e. Landsat-8) and by file type for non-imagery data (e.g. Hierarchical-Data-Format). See Details section
+}
+  \item{output}{
+string; either "list" (default), "data.frame" or "html". "html" returns a data.frame and prints it as html.
 }
 }
 \details{
@@ -70,7 +73,7 @@ data.frame containing query output
 api_key <- "your_personal_alphanumeric_api_key"
 
 # One of the world largest landfills "Olusosun Dump" in Nigeria
-querySW(api_key, time_period = 2015-8, coordinates = "6.566358,3.367358,6.586358,3.387358")
+querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358")
 
 # An Imperial Oil refinery in Canada
 querySW(api_key, time_period = 2015, coordinates = "36.281389,-80.060278", data_level = 3)
@@ -91,6 +94,13 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
         coordinates = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, max_cloudcover = 100, 
         wavelength_band = "Blue")
+
+# Get output as data.frame
+res <- querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", output = "data.frame")
+View(res)
+
+# Get output as html
+querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", output = "html")
 }
 }
 \keyword{ spatial }% use one of  RShowDoc("KEYWORDS")
