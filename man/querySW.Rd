@@ -96,7 +96,7 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue")
 
-# Get output as html
+# Print output data.frame as html
 querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", 
         output = "html")
 querySW(api_key, time_period = "2016-07-11,2016-07-12", 
