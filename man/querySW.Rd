@@ -17,7 +17,7 @@ string; personal alphanumeric api key
 string; one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). See Details section
 }
   \item{coordinates}{
-string; longitude, latitude coordinate pairs. See Details section
+string or an Spatial object. See Details section
 }
   \item{instrument_satellite}{
 string;  source of the data, either the instrument on-board the satellite or the satellite itself. See Details section
@@ -43,7 +43,7 @@ string; either "data.frame" (default) or "html". "html" returns a data.frame and
 
 \code{time_period} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If no time is specified, midnight UTC on the day in question is assumed. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
 
-\code{coordinates} corresponds to a list of longitude, latitude coordinate pairs as a flat, comma-separated list. A list of two numbers represents a point, four numbers is a square area where the coordinates are the corners, or if there are more than four numbers the coordinates represent a closed polygon, where the first point equals the last point in the list. Because this list represents a number of points, there always has to be an even number of numbers in the list. Examples:
+\code{coordinates} can be an object of class 'Spatial' (in geographic coordinates) or a string. When supplied as string, \code{coordinates} corresponds to a list of longitude, latitude coordinate pairs as a flat, comma-separated list. A list of two numbers represents a point, four numbers is a square area where the coordinates are the corners, or if there are more than four numbers the coordinates represent a closed polygon, where the first point equals the last point in the list. Because this list represents a number of points, there always has to be an even number of numbers in the list. Examples:
 
 Point: -71.1043443253,-42.3150676016
 
@@ -85,6 +85,12 @@ querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", d
 # Ahvaz, Iran in September, 2015
 querySW(api_key, time_period = "2015-9", coordinates = "31.321119,48.676074", data_level = 1, 
         wavelength_band = "red,green,blue")
+
+# Queries can be performed using Spatial objects in geographic coordinates
+ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
+coordinates(ex1) <- ~ x + y
+class(ex1)
+querySW(api_key, time_period = "2015-8", coordinates = ej1)
 
 # Other examples
 querySW(api_key, time_period = "2009-12-25", coordinates = "-71.1043443253471,-42.3150676015829", 

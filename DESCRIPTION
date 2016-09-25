@@ -7,7 +7,7 @@ Author: Ali Santacruz, SkyWatch API Developers
 Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
 Description: Wrapper for the SkyWatch API.
     It queries and download satellite imagery using the SkyWatch API.
-Depends: R (>= 2.14.0), httr, htmlTable, curl
+Depends: R (>= 2.14.0), sp, httr, htmlTable, curl
 License: GPL (>= 2)
 Encoding: latin1
 LazyData: true
