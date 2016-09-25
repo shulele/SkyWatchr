@@ -1,5 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 import(sp)
+importFrom(methods, is)
 importFrom(httr, GET)
 importFrom(httr, content)
 importFrom(httr, oauth_app)
