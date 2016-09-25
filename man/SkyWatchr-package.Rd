@@ -8,14 +8,14 @@ Wrapper for the SkyWatch API
 }
 \description{
 Wrapper for the SkyWatch API.
-    Additional description.
+    It queries and download satellite imagery using the SkyWatch API.
 }
 \details{
 \tabular{ll}{
 Package: \tab SkyWatchr\cr
 Type: \tab Package\cr
-Version: \tab 0.0-1\cr
-Date: \tab 2016-09-22\cr
+Version: \tab 0.3-0\cr
+Date: \tab 2016-09-24\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }

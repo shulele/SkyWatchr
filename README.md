@@ -72,5 +72,24 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
         max_cloudcover = 100, wavelength_band = "Blue", output = "html")
 ```
 
+Files can be downloaded using the `downloadSW` function:
+
+
+```r
+res <- querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", 
+               instrument_satellite = "MOPITT", data_level = 3)
+View(res)
+
+# Download all files
+downloadSW(res)
+
+# Download a seleted subset
+downloadSW(res, c(1,3))
+
+res <- querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", data_level = 3)
+View(res)
+downloadSW(res, which(res[, "source"] == "MOPITT"))
+```
+
 [SkyWatch]: http://www.skywatch.co/
 [SkyWatch API]: https://github.com/skywatchspaceapps/api/blob/master/README.md

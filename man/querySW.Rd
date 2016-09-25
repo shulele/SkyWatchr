@@ -2,7 +2,7 @@
 \alias{querySW}
 \title{Query SkyWatch API}
 \description{
-Query SkyWatch API
+Queries SkyWatch API.
 }
 \usage{
 querySW(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, 
