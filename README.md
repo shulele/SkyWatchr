@@ -59,7 +59,7 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
         max_cloudcover = 100, wavelength_band = "Blue")
 ```
 
-Call examples above retrieve objects of class `data.frame`. Output can also be printed as html by setting the `output` argument as `html`:
+Call examples above retrieve objects of class `data.frame`. Output can also be printed as html by setting the `output` argument as `html` (see an html output example [HERE](examples/html_output_example.html)):
 
 
 ```r
