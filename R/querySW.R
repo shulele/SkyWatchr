@@ -20,7 +20,7 @@ querySW <- function(api_key, time_period = NULL, coordinates, instrument_satelli
     res$size <- round(as.numeric(res$size)/1e3, 1)
     res$cloud_cover <- as.numeric(res$cloud_cover)
     res$resolution <- as.numeric(res$resolution)
-    colnames(res)[which(colnames(res) == 'size')] <- 'size(kb)'
+    colnames(res)[which(colnames(res) == 'size')] <- 'size_kb'
 
   if(output == "html"){
 

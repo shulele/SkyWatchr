@@ -1,6 +1,12 @@
-downloadSW <- function(x, indexes = NULL){
+downloadSW <- function(x, subset){
   
-  if(!is.null(indexes)) x <- x[indexes, ]
+  if(missing(subset)){
+    r <- rep_len(TRUE, nrow(x))
+  } else {
+    e <- substitute(subset)
+    r <- eval(e, x, parent.frame())
+  }
+  x <- x[r,]
   
   for(i in 1:nrow(x)){
     urli <- x[i, "download_path"]
@@ -9,6 +15,5 @@ downloadSW <- function(x, indexes = NULL){
     cat(paste0("Downloading ", file_name, "... (", i, " of ", nrow(x), ")", "\n"))
     curl_download(urli, file_name)
   }
-  
   cat(paste0("\n", "All requested files have been downloaded to: ", getwd()))
 }

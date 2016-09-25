@@ -14,7 +14,7 @@ querySW(api_key, time_period = NULL, coordinates, instrument_satellite = NULL,
 string; personal alphanumeric api key
 }
   \item{time_period}{
-string; one or two UTC time_periodtamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). See Details section
+string; one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). See Details section
 }
   \item{coordinates}{
 string; longitude, latitude coordinate pairs. See Details section
@@ -41,7 +41,7 @@ string; either "data.frame" (default) or "html". "html" returns a data.frame and
 \details{
 \code{api_key} is a personal alphanumeric api key created for and provided to user once registered at \href{https://app.skywatch.co/}{app.skywatch.co}.
 
-\code{time_period} corresponds to one or two UTC time_periodtamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If no time is specified, midnight UTC on the day in question is assumed. If only one time_periodtamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
+\code{time_period} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If no time is specified, midnight UTC on the day in question is assumed. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
 
 \code{coordinates} corresponds to a list of longitude, latitude coordinate pairs as a flat, comma-separated list. A list of two numbers represents a point, four numbers is a square area where the coordinates are the corners, or if there are more than four numbers the coordinates represent a closed polygon, where the first point equals the last point in the list. Because this list represents a number of points, there always has to be an even number of numbers in the list. Examples:
 

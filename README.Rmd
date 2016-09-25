@@ -77,18 +77,17 @@ Files can be downloaded using the `downloadSW` function:
 
 ```{r, eval = FALSE}
 res <- querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", 
-               instrument_satellite = "MOPITT", data_level = 3)
+               data_level = 3)
 View(res)
 
 # Download all files
 downloadSW(res)
 
-# Download a seleted subset
-downloadSW(res, c(1,3))
+# Download a subset
+downloadSW(res[c(1,3), ])
 
-res <- querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", data_level = 3)
-View(res)
-downloadSW(res, which(res[, "source"] == "MOPITT"))
+# Use an expresion to subset files to be downloaded
+downloadSW(res, source == "MOPITT" & size_kb < 2400)
 ```
 
 [SkyWatch]: http://www.skywatch.co/
