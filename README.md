@@ -78,7 +78,7 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
         max_cloudcover = 100, wavelength_band = "Blue", output = "html")
 ```
 
-Files can be downloaded using the `downloadSW` function:
+Files can be downloaded using the `downloadSW` function (or clicking the links in the html output as shown above):
 
 
 ```r
@@ -95,6 +95,8 @@ downloadSW(res[c(1,3), ])
 # Use an expresion to subset files to be downloaded
 downloadSW(res, source == "MOPITT" & size_kb < 2400)
 ```
+
+Download links expire 1 hour after being generated.
 
 [SkyWatch]: http://www.skywatch.co/
 [SkyWatch API]: https://github.com/skywatchspaceapps/api/blob/master/README.md
