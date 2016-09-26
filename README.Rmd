@@ -11,7 +11,7 @@ R wrapper for the [SkyWatch API] (currently version 0.3) developed by [SkyWatch]
 
 ## Installation
 
-If not installed yet, first install the `devtools` package:
+It is highly recommended to use the [RStudio IDE]. After installation of [R] and RStudio, please install the `devtools` package:
 
 ```{r, eval = FALSE}
 install.packages('devtools')
@@ -98,4 +98,6 @@ downloadSW(res, source == "MOPITT" & size_kb < 2400)
 
 [SkyWatch]: http://www.skywatch.co/
 [SkyWatch API]: https://github.com/skywatchspaceapps/api/blob/master/README.md
+[R]: https://cran.r-project.org/
+[RStudio IDE]: https://www.rstudio.com/products/rstudio/download/
 [HERE]: https://amsantac.github.io/SkyWatchr/examples/html_output_example.html
