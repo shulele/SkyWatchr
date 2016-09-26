@@ -60,11 +60,11 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue")
 
-# Queries can be performed using Spatial objects in geographic coordinates
+# Queries can be performed using objects of class Spatial (as defined by the sp package) projected in geographic coordinates
 ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
 coordinates(ex1) <- ~ x + y
 class(ex1)
-querySW(api_key, time_period = "2015-8", coordinates = ej1)
+querySW(api_key, time_period = "2015-8", coordinates = ex1)
 ```
 
 Call examples above retrieve objects of class `data.frame`. Output can also be printed as html by setting the `output` argument as `html` (see an html output example [HERE]):
