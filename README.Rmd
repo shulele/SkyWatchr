@@ -31,7 +31,7 @@ First load the SkyWatchr package:
 library(SkyWatchr)
 ```
 
-Then store in an object your API key and try some queries with the `querySW` function:
+Then store in an object [your API key] and try some queries with the `querySW` function:
 
 ```{r, eval = FALSE}
 api_key <- "your_personal_alphanumeric_api_key"
@@ -100,4 +100,5 @@ downloadSW(res, source == "MOPITT" & size_kb < 2400)
 [SkyWatch API]: https://github.com/skywatchspaceapps/api/blob/master/README.md
 [R]: https://cran.r-project.org/
 [RStudio IDE]: https://www.rstudio.com/products/rstudio/download/
+[your API key]: http://www.skywatch.co/request-access
 [HERE]: https://amsantac.github.io/SkyWatchr/examples/html_output_example.html
