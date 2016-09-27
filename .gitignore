@@ -35,3 +35,5 @@ vignettes/*.pdf
 
 *.Rproj
 README.html
+man/.Rhistory
+R/.Rhistory
