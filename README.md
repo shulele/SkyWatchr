@@ -5,7 +5,7 @@ R wrapper for the [SkyWatch API] (currently version 0.3) developed by [SkyWatch]
 
 ## Installation
 
-It is highly recommended to use the [RStudio IDE]. After installation of [R] and RStudio, please install the `devtools` package:
+If not installed yet, first install the `devtools` package:
 
 
 ```r
