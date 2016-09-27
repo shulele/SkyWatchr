@@ -118,4 +118,4 @@ class(ex1)
 querySW(api_key, time_period = "2015-8", coordinates = ex1)
 }
 }
-\keyword{ spatial }% use one of  RShowDoc("KEYWORDS")
+\keyword{ spatial }

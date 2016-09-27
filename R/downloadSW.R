@@ -5,7 +5,7 @@ downloadSW <- function(x, subset){
   } else {
     e <- substitute(subset)
     r <- eval(e, x, parent.frame())
-  }
+  } 
   x <- x[r,]
   
   for(i in 1:nrow(x)){

@@ -29,8 +29,8 @@ querySW <- function(api_key, time_period = NULL, coordinates, instrument_satelli
     html.res <- htmlTable(res)
     
     for (i in 1:nrow(res)){
-      html.res <- gsub(res[i, "download_path"], paste0("<a href='", res[i, "download_path"], "'>", res[i, "download_path"], "</a>"), 
-                       html.res, fixed = TRUE)
+      html.res <- gsub(res[i, "download_path"], paste0("<a href='", res[i, "download_path"], "'>", res[i, "download_path"], 
+                                                       "</a>"), html.res, fixed = TRUE)
     }
     print(html.res)
   }
