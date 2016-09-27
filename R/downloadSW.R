@@ -5,7 +5,7 @@ downloadSW <- function(x, subset){
   } else {
     e <- substitute(subset)
     r <- eval(e, x, parent.frame())
-  } 
+  }
   x <- x[r,]
   
   for(i in 1:nrow(x)){
@@ -13,7 +13,7 @@ downloadSW <- function(x, subset){
     elems <- unlist(strsplit(urli, "/", fixed = TRUE))
     file_name <- strsplit(elems[length(elems)], "?", fixed = TRUE)[[1]][1]
     cat(paste0("Downloading ", file_name, "... (", i, " of ", nrow(x), ")", "\n"))
-    curl_download(urli, file_name)
+    download.file(urli, file_name)
   }
   cat(paste0("\n", "All requested files have been downloaded to: ", getwd()))
 }

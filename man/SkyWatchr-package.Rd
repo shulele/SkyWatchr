@@ -23,7 +23,9 @@ LazyLoad: \tab yes\cr
 \author{
 Ali Santacruz, SkyWatch API Developers
 
-Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
+Maintainer: Ali Santacruz <amsantac@unal.edu.co>
 }
+% Add one or more standard keywords, see file 'KEYWORDS' in the
+% R documentation directory.
 \keyword{ package }% use one of  RShowDoc("KEYWORDS")
 \keyword{ spatial }% __ONLY ONE__ keyword per line

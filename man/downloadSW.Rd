@@ -10,6 +10,7 @@ Downloads satellite imagery from SkyWatch API using a query output object from t
 \usage{
 downloadSW(x, subset)
 }
+%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
 data.frame returned by the querySW function

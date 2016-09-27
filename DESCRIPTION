@@ -2,12 +2,12 @@ Package: SkyWatchr
 Type: Package
 Title: Wrapper for the SkyWatch API
 Version: 0.3-0
-Date: 2016-09-24
+Date: 2016-09-27
 Author: Ali Santacruz, SkyWatch API Developers
-Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
+Maintainer: Ali Santacruz <amsantac@unal.edu.co>
 Description: Wrapper for the SkyWatch API.
     It queries and download satellite imagery using the SkyWatch API.
-Depends: R (>= 2.14.0), sp, httr, htmlTable, curl, methods
+Depends: R (>= 2.14.0), httr, htmlTable, sp, methods
 License: GPL (>= 2)
 Encoding: latin1
 LazyData: true
