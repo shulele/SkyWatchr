@@ -9,7 +9,7 @@ output:
 
 R wrapper for the [SkyWatch API][SkyWatch API] (currently version 0.3) developed by [SkyWatch].
 
-The SkyWatch API allows users to search satellite imagery and datasets by wavelength (band), cloud cover, resolution, location, date, etc.
+The SkyWatch API provides a singular point to discover and access the world’s remote sensing datasets. It allows users to search satellite imagery and datasets by wavelength (band), cloud cover, resolution, location, date, etc.
 
 An API key for free access to the SkyWatch API can be requested [in this link].
 
