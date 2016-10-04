@@ -1,7 +1,11 @@
 
 # SkyWatchr
 
-R wrapper for the [SkyWatch API] (currently version 0.3) developed by [SkyWatch].
+R wrapper for the [SkyWatch API][SkyWatch API] (currently version 0.3) developed by [SkyWatch].
+
+The SkyWatch API allows users to search satellite imagery and datasets by wavelength (band), cloud cover, resolution, location, date, etc.
+
+An API key for free access to the SkyWatch API can be requested [in this link].
 
 ## Installation
 
@@ -101,6 +105,7 @@ Download links expire 1 hour after being generated.
 
 [SkyWatch]: http://www.skywatch.co/
 [SkyWatch API]: https://github.com/skywatchspaceapps/api/blob/master/README.md
+[in this link]: http://www.skywatch.co/request-access
 [R]: https://cran.r-project.org/
 [RStudio IDE]: https://www.rstudio.com/products/rstudio/download/
 [your API key]: http://www.skywatch.co/request-access
