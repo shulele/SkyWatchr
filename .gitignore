@@ -37,3 +37,5 @@ vignettes/*.pdf
 README.html
 man/.Rhistory
 R/.Rhistory
+
+api_key.txt

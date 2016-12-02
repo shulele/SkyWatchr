@@ -2,20 +2,22 @@
 \alias{SkyWatchr}
 \alias{SkyWatchr-package}
 \docType{package}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Wrapper for the SkyWatch API
 }
 \description{
-Wrapper for the SkyWatch API.
-    It queries and download satellite imagery using the SkyWatch API.
+Query and download satellite imagery and climate/atmospheric datasets using the SkyWatch API. 
+     Search datasets by wavelength (band), cloud cover, resolution, location, date, etc.
+     Get the query results as data frame and as HTML. 
+     
+     To learn more about the SkyWatch API, see \href{https://github.com/skywatchspaceapps/api}{https://github.com/skywatchspaceapps/api}. An API key for free access to the SkyWatch API can be requested in \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}.
 }
 \details{
 \tabular{ll}{
 Package: \tab SkyWatchr\cr
 Type: \tab Package\cr
-Version: \tab 0.3-0\cr
-Date: \tab 2016-09-24\cr
+Version: \tab 0.5-0\cr
+Date: \tab 2016-12-02\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }

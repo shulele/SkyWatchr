@@ -12,7 +12,7 @@ downloadSW <- function(x, subset){
     urli <- x[i, "download_path"]
     elems <- unlist(strsplit(urli, "/", fixed = TRUE))
     file_name <- strsplit(elems[length(elems)], "?", fixed = TRUE)[[1]][1]
-    cat(paste0("Downloading ", file_name, "... (", i, " of ", nrow(x), ")", "\n"))
+    cat(paste0("Downloading ", file_name, "... (", i, "/", nrow(x), ")", "\n"))
     download.file(urli, file_name)
   }
   cat(paste0("\n", "All requested files have been downloaded to: ", getwd()))

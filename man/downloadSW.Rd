@@ -2,10 +2,10 @@
 \alias{downloadSW}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Downloads satellite imagery from SkyWatch API
+Download satellite imagery and climate/atmospheric datasets using the SkyWatch API
 }
 \description{
-Downloads satellite imagery from SkyWatch API using a query output object from the querySW function.
+Download satellite imagery and climate/atmospheric datasets using the SkyWatch API based on a query output object obtained from the querySW function.
 }
 \usage{
 downloadSW(x, subset)

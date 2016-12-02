@@ -1,22 +1,22 @@
 \name{querySW}
 \alias{querySW}
-\title{Query SkyWatch API}
+\title{Query the SkyWatch API for satellite imagery and climate/atmospheric datasets}
 \description{
-Queries SkyWatch API.
+Search satellite imagery and climate/atmospheric datasets by wavelength (band), cloud cover, resolution, location, date, etc. using the SkyWatch API. Available datasets include ACOS, AIRS, CAI, FTS-SWIR, Landsat-8, MOPITT, OCO2, Sentinel-2 and TES. To learn more about the SkyWatch API, see \href{https://github.com/skywatchspaceapps/api}{https://github.com/skywatchspaceapps/api}. 
 }
 \usage{
-querySW(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, 
+querySW(api_key, time_period = NULL, longitude_latitude, instrument_satellite = NULL, 
         data_level = NULL, max_resolution = NULL, max_cloudcover = NULL, 
         wavelength_band = NULL, output = "data.frame")
 }
 \arguments{
   \item{api_key}{
-string; personal alphanumeric api key
+string; personal alphanumeric API key
 }
   \item{time_period}{
 string; one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). See Details section
 }
-  \item{coordinates}{
+  \item{longitude_latitude}{
 string or an Spatial object. See Details section
 }
   \item{instrument_satellite}{
@@ -39,11 +39,11 @@ string; either "data.frame" (default) or "html". "html" returns a data.frame and
 }
 }
 \details{
-\code{api_key} is a personal alphanumeric api key created for and provided to user once registered at \href{https://app.skywatch.co/}{app.skywatch.co}.
+\code{api_key} is a personal alphanumeric API key created for and provided to a user once registered at \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}.
 
 \code{time_period} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If no time is specified, midnight UTC on the day in question is assumed. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
 
-\code{coordinates} can be an object of class 'Spatial' (in geographic coordinates) or a string. When supplied as string, \code{coordinates} corresponds to a list of longitude, latitude coordinate pairs as a flat, comma-separated list. A list of two numbers represents a point, four numbers is a square area where the coordinates are the corners, or if there are more than four numbers the coordinates represent a closed polygon, where the first point equals the last point in the list. Because this list represents a number of points, there always has to be an even number of numbers in the list. Examples:
+\code{longitude_latitude} can be an object of class 'Spatial' (in geographic coordinates) or a string. When supplied as string, \code{longitude_latitude} corresponds to a list of longitude, latitude coordinate pairs as a flat, comma-separated list. A list of two numbers represents a point, four numbers is a square area where the coordinates are the corners, or if there are more than four numbers the coordinates represent a closed polygon, where the first point equals the last point in the list. Because this list represents a number of points, there always has to be an even number of numbers in the list. Examples:
 
 Point: -71.1043443253,-42.3150676016
 
@@ -55,7 +55,7 @@ Polygon: -71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,
 
 -71.1043443253471,-42.3150676015829
 
-\code{instrument_satellite} corresponds to the source of the data, either the instrument on-board the satellite or the satellite itself. Single or multiple sources can be specified. Choice of sources are: ACOS, AIRS, CAI, FTS-SWIR, Landsat-8, MOPITT, OCO2, and TES. This field is not case-sensitive, and multiple sources can be specified (separated by commas).
+\code{instrument_satellite} corresponds to the source of the data, either the instrument on-board the satellite or the satellite itself. Single or multiple sources can be specified. Choice of sources are: ACOS, AIRS, CAI, FTS-SWIR, Landsat-8, MOPITT, OCO2, Sentinel-2 and TES. This field is not case-sensitive, and multiple sources can be specified (separated by commas).
 
 \code{data_level} corresponds to the data processing levels for Earth observation data. Level 1, 2, and 3 (L1, L2, L3) datasets are available. If no data level is specified, datasets of all levels will be returned. Only a single level can be specified. Choices are: 1, 2, and 3.
 
@@ -73,40 +73,43 @@ data.frame containing query output
 api_key <- "your_personal_alphanumeric_api_key"
 
 # One of the world largest landfills "Olusosun Dump" in Nigeria
-querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358")
+querySW(api_key, time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358")
 
 # An Imperial Oil refinery in Canada
-res <- querySW(api_key, time_period = 2015, coordinates = "36.281389,-80.060278", data_level = 3)
+res <- querySW(api_key, time_period = 2015, longitude_latitude = "36.281389,-80.060278", 
+               data_level = 3)
 View(res)
 
 # The smoggiest city on Earth Ahvaz, Iran
-querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", data_level = 3)
+querySW(api_key, time_period = "2015-06", longitude_latitude = "31.321119,48.676074", 
+        data_level = 3)
 
 # Ahvaz, Iran in September, 2015
-querySW(api_key, time_period = "2015-9", coordinates = "31.321119,48.676074", data_level = 1, 
-        wavelength_band = "red,green,blue")
+querySW(api_key, time_period = "2015-9", longitude_latitude = "31.321119,48.676074", 
+        data_level = 1, wavelength_band = "red,green,blue")
 
 # Queries can be performed using Spatial objects in geographic coordinates
 ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
 coordinates(ex1) <- ~ x + y
 class(ex1)
-querySW(api_key, time_period = "2015-8", coordinates = ej1)
+querySW(api_key, time_period = "2015-8", longitude_latitude = ej1)
 
 # Other examples
-querySW(api_key, time_period = "2009-12-25", coordinates = "-71.1043443253471,-42.3150676015829", 
-        data_level = 2)
-querySW(api_key, time_period = "2009-12-25", coordinates = "-71.1043443253471,-42.3150676015829")
+querySW(api_key, time_period = "2009-12-25", 
+        longitude_latitude = "-71.1043443253471,-42.3150676015829", data_level = 2)
+querySW(api_key, time_period = "2009-12-25", 
+        longitude_latitude = "-71.1043443253471,-42.3150676015829")
 
 querySW(api_key, time_period = "2016-07-11,2016-07-12", 
-        coordinates = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
+        longitude_latitude = "-71.1,-42.3,71.1,-42.3,71.1,42.3,-71.1,42.3,-71.1,-42.3",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue")
 
 # Print output data.frame as html
-querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", 
+querySW(api_key, time_period = "2015-8", longitude_latitude = "6.56635,3.36735,6.58635,3.38735", 
         output = "html")
 querySW(api_key, time_period = "2016-07-11,2016-07-12", 
-        coordinates = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
+        longitude_latitude = "-71.1,-42.3,71.1,-42.3,71.1,42.3,-71.1,42.3,-71.1,-42.3",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue", output = "html")
 
@@ -115,7 +118,7 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
 ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
 coordinates(ex1) <- ~ x + y
 class(ex1)
-querySW(api_key, time_period = "2015-8", coordinates = ex1)
+querySW(api_key, time_period = "2015-8", longitude_latitude = ex1)
 }
 }
 \keyword{ spatial }% use one of  RShowDoc("KEYWORDS")

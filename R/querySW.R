@@ -1,11 +1,11 @@
-querySW <- function(api_key, time_period = NULL, coordinates, instrument_satellite = NULL, data_level = NULL, 
+querySW <- function(api_key, time_period = NULL, longitude_latitude, instrument_satellite = NULL, data_level = NULL, 
                     max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "data.frame"){
   
   if (is.null(time_period)) time_period <- Sys.Date()
   
-  if(is(coordinates, "Spatial")) coordinates <- paste0(bbox(coordinates), collapse = ",")
+  if(is(longitude_latitude, "Spatial")) longitude_latitude <- paste0(bbox(longitude_latitude), collapse = ",")
 
-  URL <- paste0("https://api.skywatch.co/data", "/time/", time_period, "/location/", coordinates)
+  URL <- paste0("https://api.skywatch.co/data", "/time/", time_period, "/location/", longitude_latitude)
   
   if(!is.null(instrument_satellite)) URL <- paste0(URL, "/source/", instrument_satellite)
   if(!is.null(data_level)) URL <- paste0(URL, "/level/", data_level)
