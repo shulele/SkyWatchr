@@ -1,9 +1,9 @@
 
 # SkyWatchr
 
-R wrapper for the [SkyWatch API][SkyWatch API] (currently version 0.3) developed by [SkyWatch].
+R wrapper for the [SkyWatch API][SkyWatch API] (currently version 0.5) developed by [SkyWatch].
 
-The SkyWatch API provides a singular point to discover and access the world’s remote sensing datasets. It allows users to search satellite imagery and datasets by wavelength (band), cloud cover, resolution, location, date, etc.
+The SkyWatch API aims to provide a singular point to discover and access the world’s remote sensing datasets. It allows users to search satellite imagery and climate/atmospheric datasets by wavelength (band), cloud cover, resolution, location, date, etc. Available datasets include ACOS, AIRS, CAI, FTS-SWIR, Landsat-8, MOPITT, OCO2, Sentinel-2 and TES. 
 
 An API key for free access to the SkyWatch API can be requested [in this link].
 
@@ -39,26 +39,26 @@ Then store in an object [your API key] and try some queries with the `querySW` f
 api_key <- "your_personal_alphanumeric_api_key"
 
 # One of the world largest landfills "Olusosun Dump" in Nigeria
-querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358")
+querySW(api_key, time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358")
 
 # An Imperial Oil refinery in Canada
-res <- querySW(api_key, time_period = 2015, coordinates = "36.281389,-80.060278", data_level = 3)
+res <- querySW(api_key, time_period = 2015, longitude_latitude = "36.281389,-80.060278", data_level = 3)
 View(res)
 
 # The smoggiest city on Earth Ahvaz, Iran
-querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", data_level = 3)
+querySW(api_key, time_period = "2015-06", longitude_latitude = "31.321119,48.676074", data_level = 3)
 
 # Ahvaz, Iran in September, 2015
-querySW(api_key, time_period = "2015-9", coordinates = "31.321119,48.676074", data_level = 1, 
+querySW(api_key, time_period = "2015-9", longitude_latitude = "31.321119,48.676074", data_level = 1, 
         wavelength_band = "red,green,blue")
 
 # Other examples
-querySW(api_key, time_period = "2009-12-25", coordinates = "-71.1043443253471,-42.3150676015829", 
+querySW(api_key, time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829", 
         data_level = 2)
-querySW(api_key, time_period = "2009-12-25", coordinates = "-71.1043443253471,-42.3150676015829")
+querySW(api_key, time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829")
 
 querySW(api_key, time_period = "2016-07-11,2016-07-12", 
-        coordinates = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
+        longitude_latitude = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue")
 
@@ -67,7 +67,7 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
 ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
 coordinates(ex1) <- ~ x + y
 class(ex1)
-querySW(api_key, time_period = "2015-8", coordinates = ex1)
+querySW(api_key, time_period = "2015-8", longitude_latitude = ex1)
 ```
 
 Call examples above retrieve objects of class `data.frame`. Output can also be printed as html by setting the `output` argument as `html` (see an html output example [HERE]):
@@ -75,10 +75,10 @@ Call examples above retrieve objects of class `data.frame`. Output can also be p
 
 ```r
 # Get output as html
-querySW(api_key, time_period = "2015-8", coordinates = "6.566358,3.367358,6.586358,3.387358", 
+querySW(api_key, time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358", 
         output = "html")
 querySW(api_key, time_period = "2016-07-11,2016-07-12", 
-        coordinates = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
+        longitude_latitude = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue", output = "html")
 ```
@@ -87,7 +87,7 @@ Files can be downloaded using the `downloadSW` function (or clicking the links i
 
 
 ```r
-res <- querySW(api_key, time_period = "2015-06", coordinates = "31.321119,48.676074", 
+res <- querySW(api_key, time_period = "2015-06", longitude_latitude = "31.321119,48.676074", 
                data_level = 3)
 View(res)
 
