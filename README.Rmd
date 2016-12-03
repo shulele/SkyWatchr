@@ -105,9 +105,9 @@ Download links expire 1 hour after being generated.
 
 For help on the functions implemented in the SkyWatchr package see the [reference manual](/SkyWatchr-manual.pdf) or run the following command lines in the R console:
 
-```{r}
-?'SkyWatchr-package'
+```{r, eval = FALSE}
 ?SkyWatchr
+?'SkyWatchr-package'
 ```
 
 [SkyWatch]: http://www.skywatch.co/
