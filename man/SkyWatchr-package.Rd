@@ -10,14 +10,14 @@ Query and download satellite imagery and climate/atmospheric datasets using the 
      Search datasets by wavelength (band), cloud cover, resolution, location, date, etc.
      Get the query results as data frame and as HTML. 
      
-     To learn more about the SkyWatch API, see \href{https://github.com/skywatchspaceapps/api}{https://github.com/skywatchspaceapps/api}. An API key for free access to the SkyWatch API can be requested in \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}.
+     To learn more about the SkyWatch API, see \href{https://github.com/skywatchspaceapps/api}{https://github.com/skywatchspaceapps/api}. An API key for free access to the SkyWatch API can be requested at \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}.
 }
 \details{
 \tabular{ll}{
 Package: \tab SkyWatchr\cr
 Type: \tab Package\cr
 Version: \tab 0.5-0\cr
-Date: \tab 2016-12-02\cr
+Date: \tab 2016-12-03\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }

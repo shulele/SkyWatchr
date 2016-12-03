@@ -88,12 +88,6 @@ querySW(api_key, time_period = "2015-06", longitude_latitude = "31.321119,48.676
 querySW(api_key, time_period = "2015-9", longitude_latitude = "31.321119,48.676074", 
         data_level = 1, wavelength_band = "red,green,blue")
 
-# Queries can be performed using Spatial objects in geographic coordinates
-ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
-coordinates(ex1) <- ~ x + y
-class(ex1)
-querySW(api_key, time_period = "2015-8", longitude_latitude = ej1)
-
 # Other examples
 querySW(api_key, time_period = "2009-12-25", 
         longitude_latitude = "-71.1043443253471,-42.3150676015829", data_level = 2)

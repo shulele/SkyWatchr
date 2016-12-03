@@ -103,6 +103,13 @@ downloadSW(res, source == "MOPITT" & size_kb < 2400)
 
 Download links expire 1 hour after being generated.
 
+For help on the functions implemented in the SkyWatchr package see the [reference manual](/SkyWatchr-manual.pdf) or run the following command lines in the R console:
+
+```{r}
+?'SkyWatchr-package'
+?SkyWatchr
+```
+
 [SkyWatch]: http://www.skywatch.co/
 [SkyWatch API]: https://github.com/skywatchspaceapps/api/blob/master/README.md
 [in this link]: http://www.skywatch.co/request-access
