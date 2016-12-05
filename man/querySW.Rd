@@ -5,7 +5,7 @@
 Search satellite imagery and climate/atmospheric datasets by wavelength (band), cloud cover, resolution, location, date, etc. using the SkyWatch API. Available datasets include ACOS, AIRS, CAI, FTS-SWIR, Landsat-8, MOPITT, OCO2, Sentinel-2 and TES. To learn more about the SkyWatch API, see \href{https://github.com/skywatchspaceapps/api}{https://github.com/skywatchspaceapps/api}. 
 }
 \usage{
-querySW(api_key, time_period = NULL, longitude_latitude, instrument_satellite = NULL, 
+querySW(api_key, time_period, longitude_latitude, instrument_satellite = NULL, 
         data_level = NULL, max_resolution = NULL, max_cloudcover = NULL, 
         wavelength_band = NULL, output = "data.frame")
 }
@@ -41,7 +41,7 @@ string; either "data.frame" (default) or "html". "html" returns a data.frame and
 \details{
 \code{api_key} is a personal alphanumeric API key created for and provided to a user once registered at \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}.
 
-\code{time_period} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If no time is specified, midnight UTC on the day in question is assumed. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
+\code{time_period} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
 
 \code{longitude_latitude} can be an object of class 'Spatial' (in geographic coordinates) or a string. When supplied as string, \code{longitude_latitude} corresponds to a list of longitude, latitude coordinate pairs as a flat, comma-separated list. A list of two numbers represents a point, four numbers is a square area where the coordinates are the corners, or if there are more than four numbers the coordinates represent a closed polygon, where the first point equals the last point in the list. Because this list represents a number of points, there always has to be an even number of numbers in the list. Examples:
 

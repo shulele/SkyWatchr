@@ -1,4 +1,4 @@
-querySW <- function(api_key, time_period = NULL, longitude_latitude, instrument_satellite = NULL, data_level = NULL, 
+querySW <- function(api_key, time_period, longitude_latitude, instrument_satellite = NULL, data_level = NULL, 
                     max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "data.frame"){
   
   if (is.null(time_period)) time_period <- Sys.Date()

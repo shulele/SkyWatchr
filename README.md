@@ -103,6 +103,19 @@ downloadSW(res, source == "MOPITT" & size_kb < 2400)
 
 Download links expire 1 hour after being generated.
 
+If needed, the boundary box enclosing the extent of a given dataset retrieved in the results data.frame can be generated using the `getPolygon` function:
+
+
+```r
+res <- querySW(api_key, time_period = "2015-8", longitude_latitude = "-71.1043443253471,-42.3150676015829")
+sppolygon <- getPolygon(res, index = 55)   # index refers to corresponding row in the data.frame
+
+# To visualize it use spplot or packages such as mapview
+spplot(sppolygon)
+library(mapview)
+mapView(sppolygon)
+```
+
 For help on the functions implemented in the SkyWatchr package see the [reference manual](/SkyWatchr-manual.pdf) or run the following command lines in the R console:
 
 
