@@ -9,14 +9,21 @@ An API key for free access to the SkyWatch API can be requested [in this link].
 
 ## Installation
 
-If not installed yet, first install the `devtools` package:
+The stable version (recommended) can be installed from [CRAN] by executing the following command line in an R console:
+
+
+```r
+install.packages('SkyWatchr')
+```
+
+Alternatively, the development version can be installed from this GitHub repository. You'll need to install first the `devtools` package:
 
 
 ```r
 install.packages('devtools')
 ```
 
-Then install the `SkyWatchr` package from this GitHub repository:
+Then install the `SkyWatchr` package from this repository:
 
 
 ```r
@@ -124,6 +131,7 @@ For help on the functions implemented in the SkyWatchr package see the [referenc
 ?'SkyWatchr-package'
 ```
 
+[CRAN]: https://cran.r-project.org/package=SkyWatchr
 [SkyWatch]: http://www.skywatch.co/
 [SkyWatch API]: https://github.com/skywatchspaceapps/api/blob/master/README.md
 [in this link]: http://www.skywatch.co/request-access
