@@ -9,7 +9,7 @@ An API key for free access to the SkyWatch API can be requested [in this link].
 
 ## Installation
 
-The stable version (recommended) can be installed from [CRAN] by executing the following command line in an R console:
+The stable version (recommended) of the SkyWatchr package can be installed from [CRAN] by executing the following command line in an R console:
 
 
 ```r
@@ -118,7 +118,6 @@ res <- querySW(api_key, time_period = "2015-8", longitude_latitude = "-71.104344
 sppolygon <- getPolygon(res, index = 55)   # index refers to corresponding row in the data.frame
 
 # To visualize it use spplot or packages such as mapview
-spplot(sppolygon)
 library(mapview)
 mapView(sppolygon)
 ```
