@@ -2,7 +2,7 @@ Package: SkyWatchr
 Type: Package
 Title: Wrapper for the SkyWatch API
 Version: 0.5-1
-Date: 2016-12-06
+Date: 2017-01-08
 Author: Ali Santacruz, SkyWatch API Developers
 Maintainer: Ali Santacruz <amsantac@unal.edu.co>
 Description: Query and download satellite imagery and climate/atmospheric datasets using the SkyWatch API. 

@@ -5,13 +5,13 @@
 Search satellite imagery and climate/atmospheric datasets by wavelength (band), cloud cover, resolution, location, date, etc. using the SkyWatch API. Available datasets include ACOS, AIRS, CAI, FTS-SWIR, Landsat-8, MOPITT, OCO2, Sentinel-2 and TES. To learn more about the SkyWatch API, see \href{https://github.com/skywatchspaceapps/api}{https://github.com/skywatchspaceapps/api}. 
 }
 \usage{
-querySW(api_key, time_period, longitude_latitude, instrument_satellite = NULL, 
+querySW(api_key = NULL, time_period, longitude_latitude, instrument_satellite = NULL, 
         data_level = NULL, max_resolution = NULL, max_cloudcover = NULL, 
         wavelength_band = NULL, output = "data.frame")
 }
 \arguments{
   \item{api_key}{
-string; personal alphanumeric API key
+string; personal alphanumeric API key. See Details section
 }
   \item{time_period}{
 string; one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). See Details section
@@ -39,7 +39,7 @@ string; either "data.frame" (default) or "html". "html" returns a data.frame and
 }
 }
 \details{
-\code{api_key} is a personal alphanumeric API key created for and provided to a user once registered at \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}.
+\code{api_key} is a personal alphanumeric API key created for and provided to a user once registered at \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}. For a cleaner code, users can set the global option \code{SkyWatchr.apikey} once per session (recommended) via: \code{options(SkyWatchr.apikey = 'your_api_key')}.
 
 \code{time_period} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
 
@@ -68,11 +68,20 @@ Polygon: -71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,
 \value{
 data.frame containing query output
 }
+\author{
+Ali Santacruz; thanks to Joshua Kunst for kindly contributing the SkyWatchr.apikey option code
+}
 \examples{
 \dontrun{
 api_key <- "your_personal_alphanumeric_api_key"
 
-# One of the world largest landfills "Olusosun Dump" in Nigeria
+# Set the SkyWatchr.apikey option 
+options(SkyWatchr.apikey = api_key)
+
+# Query data for one of the world largest landfills "Olusosun Dump" in Nigeria
+querySW(time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358")
+
+# If the SkyWatchr.apikey option is not set, then provide the API key
 querySW(api_key, time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358")
 
 # An Imperial Oil refinery in Canada
