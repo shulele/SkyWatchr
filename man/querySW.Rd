@@ -39,7 +39,7 @@ string; either "data.frame" (default) or "html". "html" returns a data.frame and
 }
 }
 \details{
-\code{api_key} is a personal alphanumeric API key created for and provided to a user once registered at \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}. For a cleaner code, users can set the global option \code{SkyWatchr.apikey} once per session (recommended) via: \code{options(SkyWatchr.apikey = 'your_api_key')}.
+\code{api_key} is a personal alphanumeric API key created for and provided to a user once registered at \href{http://www.skywatch.co/request-access}{http://www.skywatch.co/request-access}. For a cleaner code, users can set the global option \code{SkyWatchr.apikey}  (recommended) once per session via: \code{options(SkyWatchr.apikey = 'your_api_key')}.
 
 \code{time_period} corresponds to one or two UTC timestamps in ISO format (yyyy-mm-ddThh:mm:ss.sssss+|-zzzz). Partial dates can also be specified: 2009, 2009-12, 2009-12-25, 2009-12-25T13:25:00.0000+0000. If only one timestamp is passed in, a one day range is assumed. For example, if 2009-12-25 is specified, the search takes place as if 2009-12-25,2009-12-26 was specified.
 
@@ -85,33 +85,30 @@ querySW(time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358
 querySW(api_key, time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358")
 
 # An Imperial Oil refinery in Canada
-res <- querySW(api_key, time_period = 2015, longitude_latitude = "36.281389,-80.060278", 
-               data_level = 3)
+res <- querySW(time_period = 2015, longitude_latitude = "36.281389,-80.060278", data_level = 3)
 View(res)
 
 # The smoggiest city on Earth Ahvaz, Iran
-querySW(api_key, time_period = "2015-06", longitude_latitude = "31.321119,48.676074", 
-        data_level = 3)
+querySW(time_period = "2015-06", longitude_latitude = "31.321119,48.676074", data_level = 3)
 
 # Ahvaz, Iran in September, 2015
-querySW(api_key, time_period = "2015-9", longitude_latitude = "31.321119,48.676074", 
-        data_level = 1, wavelength_band = "red,green,blue")
+querySW(time_period = "2015-9", longitude_latitude = "31.321119,48.676074", data_level = 1, 
+        wavelength_band = "red,green,blue")
 
 # Other examples
-querySW(api_key, time_period = "2009-12-25", 
-        longitude_latitude = "-71.1043443253471,-42.3150676015829", data_level = 2)
-querySW(api_key, time_period = "2009-12-25", 
-        longitude_latitude = "-71.1043443253471,-42.3150676015829")
+querySW(time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829", 
+        data_level = 2)
+querySW(time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829")
 
-querySW(api_key, time_period = "2016-07-11,2016-07-12", 
+querySW(time_period = "2016-07-11,2016-07-12", 
         longitude_latitude = "-71.1,-42.3,71.1,-42.3,71.1,42.3,-71.1,42.3,-71.1,-42.3",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue")
 
 # Print output data.frame as html
-querySW(api_key, time_period = "2015-8", longitude_latitude = "6.56635,3.36735,6.58635,3.38735", 
+querySW(time_period = "2015-8", longitude_latitude = "6.56635,3.36735,6.58635,3.38735", 
         output = "html")
-querySW(api_key, time_period = "2016-07-11,2016-07-12", 
+querySW(time_period = "2016-07-11,2016-07-12", 
         longitude_latitude = "-71.1,-42.3,71.1,-42.3,71.1,42.3,-71.1,42.3,-71.1,-42.3",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue", output = "html")
@@ -121,7 +118,7 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
 ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
 coordinates(ex1) <- ~ x + y
 class(ex1)
-querySW(api_key, time_period = "2015-8", longitude_latitude = ex1)
+querySW(time_period = "2015-8", longitude_latitude = ex1)
 }
 }
 \keyword{ spatial }% use one of  RShowDoc("KEYWORDS")

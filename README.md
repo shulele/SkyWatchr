@@ -39,32 +39,57 @@ First load the SkyWatchr package:
 library(SkyWatchr)
 ```
 
-Then store in an object [your API key] and try some queries with the `querySW` function:
+Store in an object [your API key]:
 
 
 ```r
 api_key <- "your_personal_alphanumeric_api_key"
+```
 
+For convenience, users can set the global option `SkyWatchr.apikey` (recommended) once per session via: 
+
+
+```r
+options(SkyWatchr.apikey = api_key)
+```
+
+Then try some queries with the `querySW` function:
+
+
+```r
+# One of the world largest landfills "Olusosun Dump" in Nigeria
+querySW(time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358")
+```
+
+If the `SkyWatchr.apikey` option is not set, then provide the API key:
+
+
+```r
 # One of the world largest landfills "Olusosun Dump" in Nigeria
 querySW(api_key, time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358")
+```
 
+See below additional sample queries:
+
+
+```r
 # An Imperial Oil refinery in Canada
-res <- querySW(api_key, time_period = 2015, longitude_latitude = "36.281389,-80.060278", data_level = 3)
+res <- querySW(time_period = 2015, longitude_latitude = "36.281389,-80.060278", data_level = 3)
 View(res)
 
 # The smoggiest city on Earth Ahvaz, Iran
-querySW(api_key, time_period = "2015-06", longitude_latitude = "31.321119,48.676074", data_level = 3)
+querySW(time_period = "2015-06", longitude_latitude = "31.321119,48.676074", data_level = 3)
 
 # Ahvaz, Iran in September, 2015
-querySW(api_key, time_period = "2015-9", longitude_latitude = "31.321119,48.676074", data_level = 1, 
+querySW(time_period = "2015-9", longitude_latitude = "31.321119,48.676074", data_level = 1, 
         wavelength_band = "red,green,blue")
 
 # Other examples
-querySW(api_key, time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829", 
+querySW(time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829", 
         data_level = 2)
-querySW(api_key, time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829")
+querySW(time_period = "2009-12-25", longitude_latitude = "-71.1043443253471,-42.3150676015829")
 
-querySW(api_key, time_period = "2016-07-11,2016-07-12", 
+querySW(time_period = "2016-07-11,2016-07-12", 
         longitude_latitude = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue")
@@ -74,7 +99,7 @@ querySW(api_key, time_period = "2016-07-11,2016-07-12",
 ex1 <- data.frame(x = -71.1043443253, y = -42.3150676016, data = "point")
 coordinates(ex1) <- ~ x + y
 class(ex1)
-querySW(api_key, time_period = "2015-8", longitude_latitude = ex1)
+querySW(time_period = "2015-8", longitude_latitude = ex1)
 ```
 
 Call examples above retrieve objects of class `data.frame`. Output can also be printed as html by setting the `output` argument as `html` (see an html output example [HERE]):
@@ -82,9 +107,9 @@ Call examples above retrieve objects of class `data.frame`. Output can also be p
 
 ```r
 # Get output as html
-querySW(api_key, time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358", 
+querySW(time_period = "2015-8", longitude_latitude = "6.566358,3.367358,6.586358,3.387358", 
         output = "html")
-querySW(api_key, time_period = "2016-07-11,2016-07-12", 
+querySW(time_period = "2016-07-11,2016-07-12", 
         longitude_latitude = "-71.1043443253471,-42.3150676015829,71.1043443253471,-42.3150676015829,71.1043443253471,42.3150676015829,-71.1043443253471,42.3150676015829,-71.1043443253471,-42.3150676015829",
         instrument_satellite = "Landsat-8", data_level = 1, max_resolution = 30, 
         max_cloudcover = 100, wavelength_band = "Blue", output = "html")
@@ -94,7 +119,7 @@ Files can be downloaded using the `downloadSW` function (or clicking the links i
 
 
 ```r
-res <- querySW(api_key, time_period = "2015-06", longitude_latitude = "31.321119,48.676074", 
+res <- querySW(time_period = "2015-06", longitude_latitude = "31.321119,48.676074", 
                data_level = 3)
 View(res)
 
@@ -114,7 +139,7 @@ If needed, the boundary box enclosing the extent of a given dataset retrieved in
 
 
 ```r
-res <- querySW(api_key, time_period = "2015-8", longitude_latitude = "-71.1043443253471,-42.3150676015829")
+res <- querySW(time_period = "2015-8", longitude_latitude = "-71.1043443253471,-42.3150676015829")
 sppolygon <- getPolygon(res, index = 55)   # index refers to corresponding row in the data.frame
 
 # To visualize it use spplot or packages such as mapview

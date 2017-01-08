@@ -25,7 +25,10 @@ a SpatialPolygonsDataFrame object
 \dontrun{
 api_key <- "your_personal_alphanumeric_api_key"
 
-res <- querySW(api_key, time_period = "2015-8", longitude_latitude = "-71.1043443,-42.3150676")
+# Set the SkyWatchr.apikey option 
+options(SkyWatchr.apikey = api_key)
+
+res <- querySW(time_period = "2015-8", longitude_latitude = "-71.1043443,-42.3150676")
 sppolygon <- getPolygon(res, 55)
 
 library(mapview)
