@@ -7,6 +7,8 @@ The SkyWatch API aims to provide a singular point to discover and access the wor
 
 An API key for free access to the SkyWatch API can be requested [in this link].
 
+A video tutorial explaining how to install and use the SkyWatchr package can be found in [this post in my blog].
+
 ## Installation
 
 The stable version (recommended) of the SkyWatchr package can be installed from [CRAN] by executing the following command line in an R console:
@@ -163,3 +165,4 @@ For help on the functions implemented in the SkyWatchr package see the [referenc
 [RStudio IDE]: https://www.rstudio.com/products/rstudio/download/
 [your API key]: http://www.skywatch.co/request-access
 [HERE]: https://amsantac.github.io/SkyWatchr/examples/html_output_example.html
+[this post in my blog]: http://amsantac.co/blog/en/2016/12/11/skywatch-r.html
