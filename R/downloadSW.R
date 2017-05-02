@@ -1,4 +1,4 @@
-downloadSW <- function(api_key = NULL, x, subset){
+downloadSW <- function(x, subset, api_key = NULL){
   
   if (is.null(api_key)) {
     api_key <- getOption("SkyWatchr.apikey")

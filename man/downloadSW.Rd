@@ -8,18 +8,18 @@ Download satellite imagery and climate/atmospheric datasets using the SkyWatch A
 Download satellite imagery and climate/atmospheric datasets using the SkyWatch API based on a query output object obtained from the querySW function.
 }
 \usage{
-downloadSW(api_key, x, subset)
+downloadSW(x, subset, api_key = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{api_key}{
-string; personal alphanumeric API key. See Details section
-}
   \item{x}{
 data.frame returned by the querySW function
 }
   \item{subset}{
 logical expression indicating elements or rows to keep. See details
+}
+  \item{api_key}{
+string; personal alphanumeric API key. See Details section
 }
 }
 \details{
