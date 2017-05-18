@@ -28,7 +28,7 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
   res <- as.data.frame(do.call(rbind, lapply(res, unlist)))
   res[] <- lapply(res, as.character)
   res$size <- round(as.numeric(res$size)/1e3, 1)
-  res$cloud_cover <- as.numeric(res$cloud_cover)
+  res$cloudcover <- as.numeric(res$cloudcover)
   res$resolution <- as.numeric(res$resolution)
   colnames(res)[which(colnames(res) == 'size')] <- 'size_kb'  
   
@@ -43,12 +43,12 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
     return(paste0("POLYGON((", paste(x12, x34, x56, x78, x90, sep = ","), "))"))
   })
   
-  res <- res[, which(colnames(res) == 'cloud_cover'):ncol(res)]
+  res <- res[, which(colnames(res) == 'resolution'):ncol(res)]
   res$area <- area
   
   if(output == "html"){
     
-    html.res <- htmlTable(res)
+    html.res <- interactiveTable(res)
     
     for (i in 1:nrow(res)){
       html.res <- gsub(res[i, "download_path"], paste0("<a href='", res[i, "download_path"], "'>", res[i, "download_path"], "</a>"),
