@@ -1,5 +1,5 @@
 querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_satellite = NULL, data_level = NULL, 
-                    max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "data.frame"){
+                     max_resolution = NULL, max_cloudcover = NULL, wavelength_band = NULL, output = "data.frame"){
   
   if (is.null(api_key)) {
     api_key <- getOption("SkyWatchr.apikey")
@@ -24,23 +24,21 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
   query <- GET(paste0(URL, "?"), add_headers('Accept' = 'application/json', 'x-api-key' = api_key))
   
   res <- content(query)
-  
-  res <- as.data.frame(do.call(rbind, lapply(res, unlist)))
+  res <- lapply(res, unlist)
+  res <- as.data.frame(do.call(rbind, lapply(res, function(x){x[!grepl("area.coord", names(x))]})))
   res[] <- lapply(res, as.character)
-  res$size <- round(as.numeric(res$size)/1e3, 1)
+  res$size_kb <- round(as.numeric(res$size)/1e3, 1)
   res$cloudcover <- as.numeric(res$cloudcover)
   res$resolution <- as.numeric(res$resolution)
-  colnames(res)[which(colnames(res) == 'size')] <- 'size_kb'  
-  
-  res1 <- res[, 6:15]
+
+  res1 <- res[, which(colnames(res) == 'area.bbox1'):which(colnames(res) == 'area.bbox4')]
   
   area <- apply(res1, 1, function(x){
-    x12 <- paste(x[1:2], collapse = " ")
-    x34 <- paste(x[3:4], collapse = " ")
-    x56 <- paste(x[5:6], collapse = " ")
-    x78 <- paste(x[7:8], collapse = " ")
-    x90 <- paste(x[9:10], collapse = " ")
-    return(paste0("POLYGON((", paste(x12, x34, x56, x78, x90, sep = ","), "))"))
+    x.lb <- paste(x[1], x[2], collapse = " ") # left bottom
+    x.lt <- paste(x[1], x[4], collapse = " ") # left top
+    x.rt <- paste(x[3], x[4], collapse = " ") # right top
+    x.rb <- paste(x[3], x[2], collapse = " ") # right bottom 
+    return(paste0("POLYGON((", paste(x.lb, x.lt, x.rt, x.rb, x.lb, sep = ","), "))"))
   })
   
   res <- res[, which(colnames(res) == 'resolution'):ncol(res)]
