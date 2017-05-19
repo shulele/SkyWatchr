@@ -16,8 +16,8 @@ Query and download satellite imagery and climate/atmospheric datasets using the 
 \tabular{ll}{
 Package: \tab SkyWatchr\cr
 Type: \tab Package\cr
-Version: \tab 0.6-0\cr
-Date: \tab 2017-05-01\cr
+Version: \tab 0.8-2\cr
+Date: \tab 2017-05-18\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
