@@ -28,7 +28,7 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
   res <- as.data.frame(do.call(rbind, lapply(res, function(x){x[!grepl("area.coord", names(x))]})))
   res[] <- lapply(res, as.character)
   res$size_kb <- round(as.numeric(res$size)/1e3, 1)
-  res$cloudcover <- as.numeric(res$cloudcover)
+  res$cloud_cover <- as.numeric(res$cloud_cover)
   res$resolution <- as.numeric(res$resolution)
 
   res1 <- res[, which(colnames(res) == 'area.bbox1'):which(colnames(res) == 'area.bbox4')]
