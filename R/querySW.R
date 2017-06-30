@@ -41,7 +41,7 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
     return(paste0("POLYGON((", paste(x.lb, x.lt, x.rt, x.rb, x.lb, sep = ","), "))"))
   })
   
-  res <- res[, which(colnames(res) == 'resolution'):ncol(res)]
+  res <- res[, (max(grep("area.bbox", colnames(res))) + 1):ncol(res)]
   res$area <- area
   
   if(output == "html"){
