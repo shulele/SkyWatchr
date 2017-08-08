@@ -32,6 +32,13 @@ Then install the `SkyWatchr` package from this repository:
 devtools::install_github('amsantac/SkyWatchr')
 ```
 
+When installing from GitHub, users may need to install some ancillary packages before installing the `SkyWatchr` package: 
+
+
+```r
+install.packages(c('checkmate', 'htmlwidgets', 'knitr'))
+```
+
 ## Usage
 
 First load the SkyWatchr package:
