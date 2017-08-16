@@ -127,7 +127,7 @@ res <- querySW(time_period = "2015-06", longitude_latitude = "48.676074,31.32111
 View(res)
 
 # Download all files
-downloadSW(res)
+downloadSW(res)  # Warning: This will download a huge amount of data (> 50 Gb)
 
 # Download a subset
 downloadSW(res[c(1,3), ])
