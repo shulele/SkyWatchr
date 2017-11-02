@@ -11,7 +11,14 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
   
   if (is.null(time_period)) time_period <- Sys.Date()
   
-  if(is(longitude_latitude, "Spatial")) longitude_latitude <- paste0(bbox(longitude_latitude), collapse = ",")
+  if(is(longitude_latitude, "Spatial")) {
+    if(is(longitude_latitude, "SpatialPointsDataFrame")) {
+      if(length(longitude_latitude == 1)) {
+        longitude_latitude <- paste0(bbox(longitude_latitude)[,1], collapse = ",")} else {
+          longitude_latitude <- paste0(bbox(longitude_latitude), collapse = ",")}
+    } else {
+      longitude_latitude <- paste0(bbox(longitude_latitude), collapse = ",")}
+  }
   
   URL <- paste0("https://api.skywatch.co/data", "/time/", time_period, "/location/", longitude_latitude)
   
