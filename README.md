@@ -1,7 +1,7 @@
 
 # SkyWatchr
 
-R wrapper for the [SkyWatch API][SkyWatch API] (currently version 0.8.2) developed by [SkyWatch].
+R wrapper for the [SkyWatch API][SkyWatch API] developed by [SkyWatch].
 
 The SkyWatch API aims to provide a singular point to discover and access the world’s remote sensing datasets. It allows users to search satellite imagery and climate/atmospheric datasets by wavelength (band), cloud cover, resolution, location, date, etc. Available datasets include ACOS, AIRS, CAI, FTS-SWIR, Landsat-8, MOPITT, OCO2, Sentinel-2 and TES. 
 
