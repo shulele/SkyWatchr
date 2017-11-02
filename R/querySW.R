@@ -13,7 +13,7 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
   
   if(is(longitude_latitude, "Spatial")) {
     if(is(longitude_latitude, "SpatialPointsDataFrame")) {
-      if(length(longitude_latitude == 1)) {
+      if(length(longitude_latitude) == 1) {
         longitude_latitude <- paste0(bbox(longitude_latitude)[,1], collapse = ",")} else {
           longitude_latitude <- paste0(bbox(longitude_latitude), collapse = ",")}
     } else {
@@ -35,7 +35,7 @@ querySW <- function(api_key = NULL, time_period, longitude_latitude, instrument_
   res <- as.data.frame(do.call(rbind, lapply(res, function(x){x[!grepl("area.coord", names(x))]})))
   res[] <- lapply(res, as.character)
   res$size_kb <- round(as.numeric(res$size)/1e3, 1)
-  res$cloud_cover <- as.numeric(res$cloudcover)
+  res$cloudcover <- as.numeric(res$cloudcover)
   res$resolution <- as.numeric(res$resolution)
 
   res1 <- res[, which(colnames(res) == 'area.bbox1'):which(colnames(res) == 'area.bbox4')]
