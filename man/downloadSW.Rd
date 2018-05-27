@@ -8,7 +8,7 @@ Download satellite imagery and climate/atmospheric datasets using the SkyWatch A
 Download satellite imagery and climate/atmospheric datasets using the SkyWatch API based on a query output object obtained from the querySW function.
 }
 \usage{
-downloadSW(x, subset, api_key = NULL)
+downloadSW(x, subset, file_name = "download_path", api_key = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,14 +18,15 @@ data.frame returned by the querySW function
   \item{subset}{
 logical expression indicating elements or rows to keep. See details
 }
+  \item{file_name}{
+string, either 'download_path' (default) or 'basename'. With 'download_path' the full \emph{download_path} found in \code{x} will be used as name for the downloaded file. With 'basename' only the basename of the \emph{download_path} will be used as name for the downloaded file (Warning: 'basename' may throw error if a file with the same (base)name already exists)
+}
   \item{api_key}{
 string; personal alphanumeric API key. See Details section
 }
 }
 \details{
 \code{x} must be a data.frame returned by the querySW function.
-
-If \code{indexes} is NULL, all files in the \emph{download_path} column in \code{x} are downloaded. A numeric vector indicating rows of \code{x} can be provided to \code{indexes} to download only selected files in the \emph{download_path} column of \code{x}.
 
 The \code{subset} argument works on the rows of the \code{x} object. Columns can be referred to (by name) as variables in the expression (see the examples).
 }
